@@ -2,3 +2,6 @@
 **/**.import
 .import
 .mono
+.vscode
+
+mono_crash.*.json
