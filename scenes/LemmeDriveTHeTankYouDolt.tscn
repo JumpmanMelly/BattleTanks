@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/Tank Parts/Floor.tscn" type="PackedScene" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.445629, 0.298786, -0.843885, 5.17517e-05, 0.94265, 0.333783, 0.895218, -0.148787, 0.420057, -6.80357, 4.97062, 4.58966 )
+current = true
+fov = 118.125

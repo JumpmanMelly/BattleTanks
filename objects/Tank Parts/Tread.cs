@@ -3,7 +3,7 @@ using Godot.Collections;
 
 namespace BattleTanks.TankParts
 {
-    public class Test : Spatial
+    public class Tread : Spatial
     {
         [Export]
         public float Speed = 20f;
@@ -31,6 +31,14 @@ namespace BattleTanks.TankParts
         {
             _time += delta;
             int count = 0;
+
+            var throt_input = Input.GetActionStrength("back") - Input.GetActionStrength("forward");
+            var steer_input = Input.GetActionStrength("right") - Input.GetActionStrength("left");
+
+            if (throt_input == 0 && steer_input == 0)
+                return;
+
+
             foreach (PathFollow index in _links)
             {
                 index.Offset = Speed * _time + (Offset * count);

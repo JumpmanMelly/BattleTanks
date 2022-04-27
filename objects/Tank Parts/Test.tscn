@@ -1,20 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://objects/Tank Parts/Test.cs" type="Script" id=2]
+[ext_resource path="res://objects/Tank Parts/Tread.cs" type="Script" id=1]
+[ext_resource path="res://objects/Tank Parts/Link.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 2.3, 0, 0, -2.3, 0, 0, 1.81899e-12, -0.000396263, 0, 0, -0.9, 0, 0, 0.9, 0, -5, 1, 0, -2.1, 0, 0, 2.1, 0, 0, 0, 2, 0, 0, 0.9, 0, 0, -0.9, 0, 5, 1, 0, 2.3, 0, 0, -2.3, 0, 0, 1.81899e-12, -0.000396263, 0 ),
+"points": PoolVector3Array( 2.3, 0, 0, -2.3, 0, 0, -0.00569352, -0.00146462, 0, 0, -0.9, 0, 0, 0.9, 0, -4, 1, 0, -2.1, 0, 0, 2.1, 0, 0, 0, 2, 0, 0, 0.9, 0, 0, -0.9, 0, 4, 1, 0, 2.3, 0, 0, -2.3, 0, 0, -0.00569352, -0.00146462, 0 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
 
 [node name="Test" type="Spatial"]
-script = ExtResource( 2 )
-Speed = 10.0
-Offset = 0.85
+script = ExtResource( 1 )
+Speed = 3.0
 
 [node name="Path" type="Path" parent="."]
 curve = SubResource( 1 )
 
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 0, 0.0690311, -0.997527, 0, 0.997615, 0.069025, 1, 0, 0, -1.80764, 0.0399051, 0 )
+offset = 1.80354
+rotation_mode = 4
+
+[node name="Link" parent="Path/PathFollow" instance=ExtResource( 2 )]
+
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 7, 4, 7 )
+transform = Transform( 0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 5.56052, 3.52599, 5.56052 )
